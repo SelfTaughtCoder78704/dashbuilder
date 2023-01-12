@@ -1,19 +1,39 @@
 <script>
+  import { browser } from "$app/environment";
+
   import BarChart from "../components/BarChart.svelte";
   import PieChart from "../components/PieChart.svelte";
 
   export let showBarChart = false;
   export let showPieChart = false;
+
+  /**
+   * @param {MouseEvent} e
+   * @param {string} chart
+   */
+  const handleClick = (e, chart) => {
+    e.preventDefault();
+    console.log(chart);
+    console.log("Clicked");
+    if (chart === "bar") {
+      showBarChart = !showBarChart;
+      if (browser)
+        localStorage.setItem("showBarChart", showBarChart.toString());
+    } else if (chart === "pie") {
+      showPieChart = !showPieChart;
+      if (browser)
+        localStorage.setItem("showPieChart", showPieChart.toString());
+    }
+  };
 </script>
 
 <div class="dash">
   <div class="button-grid">
-    <!-- svg chart icon -->
-    <button on:click={() => (showBarChart = !showBarChart)}>
+    <button on:click={(e) => handleClick(e, "bar")}>
       {showBarChart ? "Remove Bar" : "Visualize As Bar"} Chart
     </button>
 
-    <button on:click={() => (showPieChart = !showPieChart)}>
+    <button on:click={(e) => handleClick(e, "pie")}>
       {showPieChart ? "Remove Pie" : "Visualize As Pie"} Chart
     </button>
   </div>
@@ -45,7 +65,7 @@
   .view-grid {
     display: flex;
     flex-direction: row;
-
+    padding-top: 40px;
     grid-gap: 1rem;
     width: 100%;
     height: 100%;

@@ -1,27 +1,49 @@
 <script>
   import DashboardBuilder from "../components/DashboardBuilder.svelte";
-  const chartsShowing = {
+
+  import { onMount } from "svelte";
+  import { browser } from "$app/environment";
+  /**
+   * @typedef {Object} ChartsShowing
+   * @property {boolean} pie
+   * @property {boolean} bar
+   * @property {boolean} donut
+   * @property {boolean} line
+   */
+
+  let chartsShowing = {
     pie: false,
     bar: false,
     donut: false,
     line: false,
   };
 
-  $: sendShowingToServer = (function send() {
-    console.log("Sending to server", chartsShowing);
-  })();
+  if (browser) {
+    onMount(() => {
+      const showBar = localStorage.getItem("showBarChart");
+      const showPie = localStorage.getItem("showPieChart");
+
+      if (showBar) {
+        chartsShowing.bar = showBar === "true";
+      }
+
+      if (showPie) {
+        chartsShowing.pie = showPie === "true";
+      }
+    });
+  }
 </script>
 
 <main>
   <div class="data-top">
     <p>Pie Showing: {chartsShowing.pie}</p>
     <p>Bar Showing: {chartsShowing.bar}</p>
-    <p>Donut Showing: {chartsShowing.donut}</p>
-    <p>Line Showing: {chartsShowing.line}</p>
+    <p>Donut Showing: {false}</p>
+    <p>Line Showing: {false}</p>
   </div>
   <DashboardBuilder
-    bind:showPieChart={chartsShowing.pie}
     bind:showBarChart={chartsShowing.bar}
+    bind:showPieChart={chartsShowing.pie}
   />
 </main>
 
