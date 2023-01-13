@@ -3,7 +3,7 @@
 
   import BarChart from "../components/BarChart.svelte";
   import PieChart from "../components/PieChart.svelte";
-
+  export let data = {};
   export let showBarChart = false;
   export let showPieChart = false;
 
@@ -42,14 +42,14 @@
     {#if showBarChart}
       <div class="chart" style="width: 300px;">
         BAR CHART
-        <BarChart />
+        <BarChart {data} />
       </div>
     {/if}
 
     {#if showPieChart}
       <div class="chart" style="width: 300px;">
         PIE CHART
-        <PieChart />
+        <PieChart {data} />
       </div>
     {/if}
   </div>

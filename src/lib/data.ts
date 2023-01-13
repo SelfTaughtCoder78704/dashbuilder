@@ -27,7 +27,12 @@ function makeBgForBars() {
   }
   return bg;
 }
-
+// const colors = [];
+// for (let i = 0; i < 6; i++) {
+//     const color = `rgb(${255 * i / 5}, ${255 * (1 - i / 5)}, ${64})`;
+//     colors.push(color);
+// }
+// console.log(colors);
 export const data = {
   labels: [...fakeData[0].topics],
   datasets: [
@@ -57,3 +62,16 @@ export const data = {
   ],
 };
 
+// fakeData
+// {
+//   "labels": ["Discrimination", "Sexual Harassment", "Sensitive Topics", "Workplace Culture", "Workplace Environment", "Workplace Relationships"],
+//   "datasets": [
+//     {
+//       "label": "Number of complaints resolved",
+//       "data": [35, 100, 55, 90, 40, 60],
+//       "backgroundColor": ["#dab0c5", "#cd3879", "#121d93", "#104593", "#cace28", "#6f1130"],
+//       "borderWidth": 2,
+//       "borderColor": ["#e4e1a5", "#bb34e5", "#392322", "#961ab1", "#8444fb", "#30c5c8"]
+//     }
+//   ]
+// }

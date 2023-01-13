@@ -1,6 +1,8 @@
 <script>
   import { Pie } from "svelte-chartjs";
-  import { data } from "../lib/data";
+
+  export let data = {};
+  // jsdoc data
 
   import {
     Chart as ChartJS,
