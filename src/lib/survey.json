@@ -1,0 +1,56 @@
+{
+  "survey_name": "Diversity in the Workplace Study",
+  "topics": [
+      {
+          "topic": "Age Diversity",
+          "votes": [
+              {
+                  "option": "Very important",
+                  "votes": 80
+              },
+              {
+                  "option": "Somewhat important",
+                  "votes": 15
+              },
+              {
+                  "option": "Not important",
+                  "votes": 5
+              }
+          ]
+      },
+      {
+          "topic": "Gender Diversity",
+          "votes": [
+              {
+                  "option": "Very important",
+                  "votes": 70
+              },
+              {
+                  "option": "Somewhat important",
+                  "votes": 20
+              },
+              {
+                  "option": "Not important",
+                  "votes": 10
+              }
+          ]
+      },
+      {
+          "topic": "Racial Diversity",
+          "votes": [
+              {
+                  "option": "Very important",
+                  "votes": 90
+              },
+              {
+                  "option": "Somewhat important",
+                  "votes": 8
+              },
+              {
+                  "option": "Not important",
+                  "votes": 2
+              }
+          ]
+      }
+  ]
+}
